@@ -77,3 +77,18 @@ function printFirstItemThenFirstHalfThenSayHi100Times(items) {
         console.log('hi');
     }
 }
+// ===========================================================
+//Log all pairs of array
+const boxes = ['a', 'b', 'c', 'd', 'e'];
+const res = []
+const logAllPairsOfArray = (boxes) => {
+    for(let i = 0 ; i < boxes.length ; i++){
+        for(let j = i; j < boxes.length ; j++){
+            console.log(boxes[i],boxes[j])
+            res.push(boxes[i],boxes[j])
+        }
+    }
+}
+
+logAllPairsOfArray(boxes)
+console.log(res.length)
