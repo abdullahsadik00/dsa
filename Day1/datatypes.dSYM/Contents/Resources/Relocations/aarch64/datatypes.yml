@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/Admin/Documents/DSA/Day1/datatypes'
+relocations:     []
+...
