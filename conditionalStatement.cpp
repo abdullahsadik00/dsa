@@ -1,6 +1,22 @@
 #include <iostream>
 using namespace std;
 
+void minimumOfTwoNumbers(int a, int b) {
+    if (a < b) {
+        cout << a << " is the minimum number." << endl;
+    } else {
+        cout << b << " is the minimum number." << endl;
+    }
+}
+
+void maximumOfTwoNumbers(int a, int b) {
+    if (a > b) {
+        cout << a << " is the maximum number." << endl;
+    } else {
+        cout << b << " is the maximum number." << endl;
+    }
+}
+
 int main() {
     // programing constructs
     // syntax -> representation of something
@@ -106,5 +122,12 @@ int main() {
     ---------------------------------------
     
     */
+    int firstNumber, secondNumber;
+    cout << "Enter two numbers: ";
+    cin >> firstNumber >> secondNumber;
+    
+    minimumOfTwoNumbers(firstNumber, secondNumber);
+    maximumOfTwoNumbers(firstNumber, secondNumber);
+
     return 0;
 }
