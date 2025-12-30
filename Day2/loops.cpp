@@ -99,22 +99,82 @@ void printPatterns(int n) {
     }
 }
 
+void printFactorialOfNUsingWhileLoop(int n) {
+    int sumOfFactorial = 1;
+    int i = 1;
+    while (i <= n) {
+        sumOfFactorial = sumOfFactorial * i;
+        i++;
+    }
+    cout << "Factorial of " << n << " is: " << sumOfFactorial << endl;
+}
+
+void printSumOfInterger (int n){
+    int sum = 0;
+    int lastDigit = n % 10;
+    while (n > 0) {
+        sum = sum + lastDigit;
+        n = n / 10;
+        lastDigit = n % 10;
+    }
+    cout << "Sum of digits: " << sum << endl;
+}
+
+void checkPalindrome(int n){
+    /*
+    1221
+    1221 % 10 = 1
+    1221 / 10 = 122
+    122 % 10 = 2
+    122 / 10 = 12
+    12 % 10 = 2
+    12 / 10 = 1
+    1 % 10 = 1
+    1 / 10 = 0
+    */
+    int originalNumber = n;
+    int reverseNumber = 0;
+    while (n > 0){
+        int lastDigit = n % 10;
+        reverseNumber = reverseNumber * 10 + lastDigit;
+        n = n / 10;
+    }
+    if (originalNumber == reverseNumber){
+        cout << originalNumber << " is a palindrome number" << endl;
+    } else {
+        cout << originalNumber << " is not a palindrome number" << endl;
+    }
+}
+
+void sumOfIntergerUntilSin
+
 int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
 
-    // Uncomment the line below to test the factors function
     // printFactorsOfN(n);
 
-    // Uncomment the logic below to test prime numbers
     // for (int i = 1; i <= n; i++) {
     //     if (isPrime(i)) {
     //         cout << i << " is a prime number" << endl;
     //     }
     // }
 
-    // Call printPatterns to print the patterns based on n
-    printPatterns(n);
+    // printPatterns(n);
+    printFactorialOfNUsingWhileLoop(n);
+
+    // Print prime numbers up to n using while loop
+    int i = 1;
+    while (i <= n) {
+        if (isPrime(i)) {
+            cout << i << " is a prime number" << endl;
+        }
+        i++;
+    }
+
+    // printSumOfInterger(n);
+    checkPalindrome(n);
+
     return 0;
 }
