@@ -146,7 +146,19 @@ void checkPalindrome(int n){
     }
 }
 
-void sumOfIntergerUntilSin
+void sumOfIntergerUntilSingleDigit(int n){
+    int sum = 0;
+    while (n > 0 || sum > 9) {
+        if (n == 0) {
+            n = sum;
+            sum = 0;
+        }
+        int lastDigit = n % 10;
+        sum = sum + lastDigit;
+        n = n / 10;
+    }
+    cout << "Single digit sum: " << sum << endl;
+}
 
 int main() {
     int n;
@@ -165,16 +177,17 @@ int main() {
     printFactorialOfNUsingWhileLoop(n);
 
     // Print prime numbers up to n using while loop
-    int i = 1;
-    while (i <= n) {
-        if (isPrime(i)) {
-            cout << i << " is a prime number" << endl;
-        }
-        i++;
-    }
+    // int i = 1;
+    // while (i <= n) {
+    //     if (isPrime(i)) {
+    //         cout << i << " is a prime number" << endl;
+    //     }
+    //     i++;
+    // }
 
     // printSumOfInterger(n);
-    checkPalindrome(n);
+    // checkPalindrome(n);
+    sumOfIntergerUntilSingleDigit(n);
 
     return 0;
 }
