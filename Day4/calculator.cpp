@@ -14,35 +14,54 @@ int main()
 
     int choice;
     cin >> choice;
-    switch (choice)
+    if (choice >= 1 && choice <= 4)
     {
-    case 1:
-        cout << "Addition Selected" << endl;
-        cout << "Enter two numbers to add: ";
         int a, b;
+        cout << "Enter two numbers: ";
         cin >> a >> b;
-        cout << a << " + " << b << "=" << (a + b) << endl;
-        break;
-    case 2:
-        cout << "Subtraction Selected" << endl;
-        break;
-    case 3:
-        cout << "Multiplication Selected" << endl;
-        break;
-    case 4:
-        cout << "Division Selected" << endl;
-        break;
-    case 5:
-        cout << "Factorial Selected" << endl;
-        break;
-    case 6:
-        cout << "No. of Zeros at the end of Factorial Selected" << endl;
-        break;
-    case 7:
-        cout << "Zen Mode Selected" << endl;
-        break;
-    default:
-        cout << "Exiting Calculator. Goodbye!" << endl;
+        switch (choice)
+        {
+        case 1:
+            cout << a << " + " << b << " = " << (a + b) << endl;
+            break;
+        case 2:
+            cout << a << " - " << b << " = " << (a - b) << endl;
+            break;
+        case 3:
+            cout << a << " * " << b << " = " << (a * b) << endl;
+            break;
+        case 4:
+            if (b != 0)
+                cout << a << " / " << b << " = " << (a / b) << endl;
+            else
+                cout << "Error: Division by zero!" << endl;
+            break;
+        }
+    }
+    else if (choice == 5)
+    {
+        int n;
+        cout << "Enter a number: ";
+        cin >> n;
+        int fact = 1;
+        for (int i = 1; i <= n; ++i)
+        {
+            fact *= i;
+        }
+        cout << "Factorial of " << n << " is " << fact << endl;
+    }
+    else if (choice == 6)
+    {
+        int n;
+        cout << "Enter a number:";
+        int numberOfZeros = 0;
+        cin >> n;
+        while (n > 0)
+        {
+            numberOfZeros += n / 5;
+            n /= 5;
+        }
+        cout << "Number of trailing zeros in factorial is " << numberOfZeros << endl;
     }
 
     return 0;
