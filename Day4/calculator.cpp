@@ -1,7 +1,31 @@
 #include <iostream>
 using namespace std;
 
-int main()
+const int NORMAL_MODE = 0;
+const int ZEN_MODE = 1;
+const int EXIT = -1;
+
+int factorialOfN(int n)
+{
+    int fact = 1;
+    for (int i = 1; i <= n; ++i)
+    {
+        fact *= i;
+    }
+    return fact;
+}
+
+int trailingZerosOfEnd(int n)
+{
+    int numberOfZeros = 0;
+    while (n > 0)
+    {
+        numberOfZeros += n / 5;
+        n /= 5;
+    }
+    return numberOfZeros;
+}
+int normalMode()
 {
     cout << "\t1. Add two numbers" << endl;
     cout << "\t2. Subtract two numbers" << endl;
@@ -43,25 +67,88 @@ int main()
         int n;
         cout << "Enter a number: ";
         cin >> n;
-        int fact = 1;
-        for (int i = 1; i <= n; ++i)
-        {
-            fact *= i;
-        }
-        cout << "Factorial of " << n << " is " << fact << endl;
+        cout << "Factorial of " << n << " is " << factorialOfN(n) << endl;
     }
     else if (choice == 6)
     {
         int n;
         cout << "Enter a number:";
-        int numberOfZeros = 0;
         cin >> n;
-        while (n > 0)
-        {
-            numberOfZeros += n / 5;
-            n /= 5;
+        cout << "Number of trailing zeros in factorial is " << trailingZerosOfEnd(n) << endl;
+    }
+    else if (choice == 7)
+    {
+        return ZEN_MODE;
+    }
+    else
+    {
+        return EXIT;
+    }
+
+    return NORMAL_MODE;
+}
+
+int zenMode()
+{
+    cout << "Welcome of zen mode" << endl;
+    int a, b;
+    string s;
+    cin >> s;
+    if (s == "normal")
+    {
+        return NORMAL_MODE;
+    }
+    else if (s == "exit")
+    {
+        return EXIT;
+    }
+    a = stoi(s);
+    string arithmaticOperator;
+    cin >> arithmaticOperator;
+    if (arithmaticOperator == "+")
+    {
+        cin >> b;
+        cout << (a + b) << endl;
+    }
+    else if (arithmaticOperator == "-")
+    {
+        cin >> b;
+        cout << (a - b) << endl;
+    }
+    else if (arithmaticOperator == "*")
+    {
+        cin >> b;
+        cout << (a * b) << endl;
+    }
+    else if (arithmaticOperator == "/")
+    {
+        cin >> b;
+        cout << (a / b) << endl;
+    }
+    else if (arithmaticOperator == "!")
+    {
+
+        cout << "Factorial of " << a << " is " << factorialOfN(a) << endl;
+    }
+    else if (arithmaticOperator == "!!")
+    {
+        cout << "Number of trailing zeros in factorial is " << trailingZerosOfEnd(a) << endl;
+    }
+
+    return ZEN_MODE;
+}
+int main()
+{
+
+    int mode = 0;
+    while (mode >= 0)
+    {
+        if (mode == NORMAL_MODE){
+            mode = normalMode();
         }
-        cout << "Number of trailing zeros in factorial is " << numberOfZeros << endl;
+        else if (mode == ZEN_MODE){
+            mode = zenMode();
+        }
     }
 
     return 0;
