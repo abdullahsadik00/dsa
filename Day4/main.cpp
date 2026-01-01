@@ -60,9 +60,30 @@ string isArmstrongNumber(int n)
     }
 }
 
+void pattern(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n - i; j++)
+        {
+            cout << " 0 ";
+        }
+        for (int k = 1; k <= 2 * i - 1; k++)
+        {
+            cout << " " << (n - i + 1) * k << " ";
+        }
+        for (int j = 1; j <= n - i; j++)
+        {
+            cout << " 0 ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
-    cout << isArmstrongNumber(1634);
+    // cout << isArmstrongNumber(1634);
     // cout << gcd(100,250);
+    pattern(5);
     return 0;
 }
