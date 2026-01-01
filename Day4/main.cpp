@@ -80,10 +80,52 @@ void pattern(int n)
     }
 }
 
+void pattern2(int n) {
+    /*
+      This prints a pattern like:
+
+      * * * 0 0 0 0
+      * * 0 0 0 0
+      * 0 0 0 0
+      0 0 0 0
+      0 0 0 0
+      * 0 0 0 0
+      * * 0 0 0 0
+      * * * 0 0 0 0
+    */
+
+    // Top half
+    for (int i = 1; i <= n; i++) {
+        // Print stars on the left
+        for (int j = 1; j <= n - i; j++) {
+            cout << " * ";
+        }
+        // Print zeros
+        for (int k = 1; k <= n; k++) {
+            cout << " 0 ";
+        }
+        cout << endl;
+    }
+
+    // Bottom half
+    for (int i = 1; i <= n; i++) {
+        // Print stars on the left
+        for (int j = 1; j <= i - 1; j++) {
+            cout << " * ";
+        }
+        // Print zeros
+        for (int k = 1; k <= n; k++) {
+            cout << " 0 ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
-    // cout << isArmstrongNumber(1634);
-    // cout << gcd(100,250);
+    cout << isArmstrongNumber(1634);
+    cout << gcd(100,250);
     pattern(5);
+    pattern2(4);
     return 0;
 }
