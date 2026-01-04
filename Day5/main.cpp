@@ -1,4 +1,5 @@
-#include <iostream>
+#include <iostream>           // pre-preoceesor direcitve
+#include<vector>
 using namespace std;
 
 int average(int n)
@@ -118,7 +119,10 @@ void rotateArrayToLeft(int arr[], int n)
 void rotateArrayKTimes(int arr[],int n,int k){
     k = k % n;
     for (int i = 0; i < k;i++){
-        rotateArrayToLeft(arr,n);
+        // rotateArrayToLeft(arr,n);
+        // version 2
+        if(i +k < n )
+        arr[i+k] = arr[i];
     }
 }
 
