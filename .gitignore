@@ -1,0 +1,10 @@
+# Compiled binaries and debug symbols
+*
+!*/
+!*.cpp
+!*.h
+!*.hpp
+!*.md
+!.gitignore
+!.vscode/
+!.vscode/**
